@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Scrollbar */
+body::-webkit-scrollbar { width: 6px }
+body::-webkit-scrollbar-track {background: #232227 }
+body::-webkit-scrollbar-thumb { background: #6649b8 }
+
+/* Utilities */
+.oswald { font-family: 'Oswald', sans-serif; }
+.bg-darker { background-color: #232227; }
+.bg-purple { background-color: var(--bs-purple); }
+.bg-orange { background-color: var(--bs-orange); }
+
+/* Override Bootstrap values */
+a {
+  text-decoration: none;
+  color: var(--bs-info);
+}
+a:hover { color: var(--bs-primary); }

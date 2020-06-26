@@ -31,8 +31,8 @@ export class AppComponent {
         this.points3s = Math.floor((this.points5s / 100) * 88);
       }
       else {
-        this.points2s = basePoints3s;
-        this.points3s = basePoints2s;
+        this.points2s = basePoints2s;
+        this.points3s = basePoints3s;
         this.points5s = basePoints5s;
       }
     }

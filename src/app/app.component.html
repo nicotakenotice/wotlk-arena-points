@@ -25,11 +25,11 @@
     <img id="horde-icon" class="d-block" src="assets/icon-horde.png" alt="Horde icon">
   </div>
 
-  <!--  -->
   <div class="row flex-grow-0 g-0 mt-4">
     <!-- Info column -->
     <div class="col-md">
       <div class="text-warning mb-2">INFO</div>
+
       <ul>
         <li>You must have played at least 10 games before the next flush.</li>
         <li>If your rating is below or equal to 1500 you get a fixed amount of points.</li>
@@ -39,11 +39,13 @@
     <!-- Rating column -->
     <div class="col-md col-md-next">
       <div class="text-warning mb-2">RATING <span *ngIf="invalidInput" class="text-danger text-uppercase">(only numbers allowed)</span></div>
+      
       <div class="d-flex flex-row align-items-center">
         <input #input class="form-control" type="text" placeholder="Insert your rating" (keyup)="valueChanged(input.value)">
         <div id="reset-button" class="ml-2" (click)="input.value = ''; valueChanged(input.value)" title="Reset"><i class="fas fa-times fa-2x"></i></div>
       </div>
-      <table class="table table-borderless text-light mt-2" style="margin-bottom: 0">
+      
+      <table id="points-table" class="table table-borderless text-light mt-2">
         <thead>
           <tr>
             <th>Bracket</th>

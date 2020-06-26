@@ -21,6 +21,11 @@
   color: var(--bs-info) 
 }
 
+#points-table {
+  margin-bottom: 0;
+  width: 70%;
+}
+
 /* Override Bootstrap values */
 td { 
   padding-top: 0.2em;
@@ -30,11 +35,11 @@ td {
 
 /* Media queries */
 @media (max-width: 575.98px) {
-  #gradient-box { 
+  #gradient-box {
     padding-top: 0.5em;
     padding-bottom: 0.5em; 
   }
-  #alliance-icon, #horde-icon { width: 80px; }
+  #alliance-icon, #horde-icon { width: 60px; }
 }
 
 @media (max-width: 767.98px) {

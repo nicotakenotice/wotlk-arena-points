@@ -1,7 +1,7 @@
 /* Scrollbar */
-body::-webkit-scrollbar { width: 6px }
-body::-webkit-scrollbar-track {background: #232227 }
-body::-webkit-scrollbar-thumb { background: #6649b8 }
+body::-webkit-scrollbar { width: 6px; }
+body::-webkit-scrollbar-track { background: #232227; }
+body::-webkit-scrollbar-thumb { background: #6649b8; }
 
 /* Utilities */
 .oswald { font-family: 'Oswald', sans-serif; }

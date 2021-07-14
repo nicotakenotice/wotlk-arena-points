@@ -32,15 +32,17 @@
 }
 
 table {
-  th, td { padding: 4px 8px; }
   td { 
-    font-size: 1.2rem;
+    padding: 4px 8px;
     text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 
   .bracket {
     display: inline-block;
-    padding: 0 8px;
+    width: 60px;
+    text-align: center;
     border-radius: 4px;
   }
 }

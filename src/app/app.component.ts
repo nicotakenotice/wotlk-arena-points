@@ -1,40 +1,60 @@
-import { Component } from '@angular/core';
-import { isNullOrUndefined } from 'util';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
-const basePoints2s: number = 261;
-const basePoints3s: number = 303;
-const basePoints5s: number = 344;
+const defaultPoints: any = {
+  '2s': 261,
+  '3s': 303,
+  '5s': 344
+};
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title: string = 'Arena Points';
+export class AppComponent implements OnInit, OnDestroy {
   currentYear: number = new Date().getFullYear();
+  rating: FormControl = new FormControl();
+  points: any = defaultPoints;
+  showError: boolean = false;
+  private subs: Subscription[] = [];
+  
+  ngOnInit(): void {
+    this.subs.push(
+      this.rating.valueChanges.subscribe(value => {
+        const numericValue: number = Number(value);
+        if (Number.isNaN(numericValue)) this.showError = true;
+        else this.update(numericValue);
+      })
+    );
+    this.focusInput();
+  }
 
-  points2s: number = basePoints2s;
-  points3s: number = basePoints3s;
-  points5s: number = basePoints5s;
-  invalidInput: boolean = false;
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
+  }
 
-  valueChanged(value: string): void {
-    let valueNumber = Number(value);
-    console.log(valueNumber);
-    if (isNaN(valueNumber) || typeof valueNumber !== "number") this.invalidInput = true;
-    else {
-      this.invalidInput = false;
-      if (valueNumber > 1500) {
-        this.points5s = Math.floor(1511.26 / (1 + 1639.28 * Math.pow(2.71828, -0.00412 * valueNumber)));
-        this.points2s = Math.floor((this.points5s / 100) * 76);
-        this.points3s = Math.floor((this.points5s / 100) * 88);
-      }
-      else {
-        this.points2s = basePoints2s;
-        this.points3s = basePoints3s;
-        this.points5s = basePoints5s;
-      }
+  focusInput(): void {
+    document.getElementById('rating')?.getElementsByTagName('input')[0].focus();
+  }
+
+  reset(): void {
+    this.rating.setValue('');
+    this.points = defaultPoints;
+    this.focusInput();
+  }
+
+  update(value: number): void {
+    this.showError = false;
+    if (value > 1500) {
+      const cap: number = Math.floor(1511.26 / (1 + 1639.28 * Math.pow(2.71828, -0.00412 * value)));
+      this.points = {
+        '2s': Math.floor((cap / 100) * 76),
+        '3s': Math.floor((cap / 100) * 88),
+        '5s': cap
+      };
     }
+    else this.points = defaultPoints;
   }
 }

@@ -1,0 +1,46 @@
+#banner {
+  background: rgb(0, 88, 147);
+  background: linear-gradient(to right, rgb(0, 88, 147), rgb(118, 20, 25));
+
+  .faction-icon { 
+    width: 80px;
+
+    @media (min-width: 576px) { width: 120px; }
+  }
+}
+
+#rating {
+  position: relative;
+  width: 100%;
+  max-width: 220px; 
+  margin: 0 auto;
+
+  input { font-size: 1.5rem; }
+
+  #x {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 100%;
+    color: var(--bs-dark);
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    &:hover { color: var(--bs-primary) }
+  }
+}
+
+table {
+  th, td { padding: 4px 8px; }
+  td { 
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .bracket {
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 4px;
+  }
+}

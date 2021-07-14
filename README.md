@@ -1,6 +1,4 @@
 # 🏟️ [WOTLK Arena Points](https://nicotakenotice.github.io/wotlk-arena-points/)
-![Preview image](./.github/images/wotlk-arena-points-banner.png)
-
 Arena Points calculator for _World of Warcraft: Wrath of the Lich King_ expansion.
 
 ## Development server

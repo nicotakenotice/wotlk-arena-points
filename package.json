@@ -4,8 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path docs --base-href /wotlk-arena-points/",
-    "watch": "ng build --watch --configuration development"
+    "build": "ng build --output-path docs --base-href /wotlk-arena-points/"  
   },
   "private": true,
   "dependencies": {

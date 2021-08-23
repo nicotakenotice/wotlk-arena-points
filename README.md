@@ -5,7 +5,7 @@ Arena Points calculator for _World of Warcraft: Wrath of the Lich King_ expansio
 Install the dependencies and run a dev server:
 
 ```bash
-npm install
+npm ci
 npm run start
 ```
 
